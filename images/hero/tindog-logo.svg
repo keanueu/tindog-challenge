@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48" fill="none">
+  <rect width="220" height="48" rx="6" fill="none" />
+  <!-- Paw mark (three toes + pad) -->
+  <g transform="translate(6,4)" fill="white">
+    <ellipse cx="10" cy="6" rx="3.8" ry="4.8" />
+    <ellipse cx="18" cy="6" rx="3.8" ry="4.8" />
+    <ellipse cx="26" cy="6" rx="3.8" ry="4.8" />
+    <path d="M16 22c-6 0-9.5-4-9.5-7.8 0-5 4.2-10.2 9.5-10.2s9.5 5.2 9.5 10.2C25.5 18 22 22 16 22z" />
+  </g>
+  <!-- Text -->
+  <text x="52" y="32" font-family="Poppins, Arial, Helvetica, sans-serif" font-weight="700" font-size="20" fill="white">Tindog</text>
+</svg>
