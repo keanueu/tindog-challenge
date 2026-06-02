@@ -46,6 +46,12 @@
                         </a>
                     </li>
                 </ul>
+                <!-- Mobile hamburger -->
+                <button id="mobile-toggle" class="md:hidden ml-4 p-2 rounded-lg" aria-label="Open menu" aria-expanded="false">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 6h18M3 12h18M3 18h18" stroke="#FF5E62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </nav>
             <!-- spacer to preserve layout when nav becomes fixed -->
             <div id="nav-spacer" aria-hidden="true"></div>
@@ -68,6 +74,12 @@
                                 the app</a>
                         </li>
                     </ul>
+                    <!-- Mobile hamburger (sticky) -->
+                    <button id="mobile-toggle-sticky" class="md:hidden ml-4 p-2 rounded-lg" aria-label="Open menu" aria-expanded="false">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18M3 12h18M3 18h18" stroke="#FF5E62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
             </nav>
 
@@ -166,7 +178,13 @@
             </div>
 
             <!-- Testimonials -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div class="testimonials-wrap relative">
+                <button id="testimonial-prev" class="test-btn" aria-label="Previous testimonials">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6l-6 6 6 6" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 testimonials-grid">
 
                 <!-- Card -->
                 <div
@@ -304,8 +322,13 @@
                     </div>
                 </div>
 
+                </div>
+                <button id="testimonial-next" class="test-btn" aria-label="Next testimonials">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 6l6 6-6 6" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
-
             <!-- Pagination -->
             <div class="flex justify-center gap-2 mt-12">
                 <span class="w-4 h-4 rounded-full bg-[#ff6b57]"></span>
@@ -423,6 +446,24 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile drawer for navigation -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+        <div class="drawer-backdrop" id="drawer-backdrop" tabindex="-1"></div>
+        <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+            <div class="drawer-header flex items-center justify-between px-4 py-3">
+                <a href="#" aria-label="Tindog home"><img src="images/hero/logo2.png" alt="logo" class="h-10"></a>
+                <button id="drawer-close" aria-label="Close menu" class="p-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6l12 12M6 18L18 6" stroke="#111827" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="drawer-nav px-4 py-6" aria-label="Mobile Navigation">
+                <!-- Links will be populated by JS from main nav -->
+            </nav>
+        </aside>
+    </div>
 
     <script src="sticky-nav.js" defer></script>
 </body>

@@ -391,6 +391,109 @@ header {
     display: none;
 }
 
+/* Mobile drawer styles */
+.mobile-drawer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* sit above everything when opened */
+    z-index: 99999;
+}
+.mobile-drawer .drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    /* ensure backdrop covers content */
+    z-index: 99999;
+}
+ .mobile-drawer .drawer-panel {
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100%;
+     width: 88%;
+     max-width: 360px;
+     /* White panel background for the drawer */
+     background: #ffffff;
+     color: #111827;
+     box-shadow: -12px 0 32px rgba(0,0,0,0.12);
+     transform: translateX(100%);
+     transition: transform 300ms cubic-bezier(.22,.98,.42,1);
+     pointer-events: auto;
+     display: flex;
+     flex-direction: column;
+     /* make sure the panel is visually on top of the backdrop and nav */
+     z-index: 100000;
+ }
+
+/* Move drawer header contents slightly lower for better spacing */
+.mobile-drawer .drawer-header {
+    padding-top: 1.25rem; /* push logo and close button down */
+    padding-bottom: 0.75rem;
+    align-items: center;
+}
+
+.mobile-drawer .drawer-header a img {
+    display: block;
+}
+.mobile-drawer .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.mobile-drawer .drawer-nav a {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+    padding: 14px 0;
+    font-weight: 700;
+    font-size: 1.125rem; /* 18px */
+    color: #ff6254;
+    text-decoration: none;
+}
+
+.mobile-drawer .drawer-nav a:hover,
+.mobile-drawer .drawer-nav a:focus {
+    background: rgba(255,98,84,0.06);
+    border-radius: 8px;
+    outline: none;
+}
+.mobile-drawer.open .drawer-backdrop { opacity: 1; }
+.mobile-drawer.open .drawer-panel { transform: translateX(0); }
+
+@media (min-width: 768px) {
+    .mobile-drawer { display: none; }
+}
+
+/* Make hamburger icon white so it stands out on the hero background (exclude drawer close) */
+#mobile-toggle svg path,
+#mobile-toggle svg path,
+#mobile-toggle-sticky svg path {
+    stroke: #ffffff !important;
+}
+
+/* When the sticky nav becomes visible on scroll, make its hamburger match the brand color */
+.site-nav-sticky.visible #mobile-toggle-sticky svg path {
+    stroke: #ff6254 !important;
+}
+
+/* Drawer close icon should be dark on white panel */
+#drawer-close svg path {
+    stroke: #111827 !important;
+}
+
+/* When the drawer is closed we still keep the element in the DOM but block pointer-events;
+   opening the drawer should add the `.open` class which enables interactions. */
+.mobile-drawer.open { pointer-events: auto; }
+
 /* hero-curve sentinel — invisible marker positioned at the end of the header */
 #hero-curve {
     height: 1px;
@@ -464,4 +567,105 @@ header {
 .custom-footer,
 .custom-footer * {
     font-weight: 300 !important;
+}
+
+/* Make images generally responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ensure partner logos scale nicely on small screens */
+.find-out .logos .find-logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 640px) {
+    /* Reduce overall type scale a bit for mobile */
+    .hero-left .nanum { font-size: 20px; }
+    .hero-left h1 { font-size: 1.75rem; line-height: 1.1; }
+    .hero-left p { font-size: 14px; }
+
+    /* Make hero image smaller and avoid overflow */
+    .hero-image { width: 90%; max-width: 420px; transform: scale(1.02); }
+
+    /* Tighten CTA buttons on mobile (targets Tailwind-like px-12 items by class substring) */
+    a[class*="px-12"] { padding-left: 1rem !important; padding-right: 1rem !important; }
+    a[class*="py-3"] { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; font-size: 14px !important; }
+
+    /* Reduce sticky pill padding on mobile so it aligns with page width */
+    .site-nav-sticky.visible .sticky-inner { padding: 0.5rem 0.75rem; min-height: 52px; }
+    .site-nav-sticky .sticky-inner img { height: 40px; }
+
+    /* Find-out logos layout adjustments */
+    .find-out .logos { gap: 1.25rem; }
+
+    /* Drawer should cover full width on small phones */
+    .mobile-drawer .drawer-panel { width: 100%; max-width: 100%; }
+
+    /* Make close button and hamburger touch targets comfortable */
+    button { touch-action: manipulation; }
+    #mobile-toggle, #mobile-toggle-sticky, #drawer-close { padding: 8px !important; }
+}
+
+@media (max-width: 480px) {
+    .hero-left h1 { font-size: 1.5rem; }
+    .hero-left .nanum { font-size: 18px; }
+    a[class*="px-12"] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    a[class*="py-3"] { font-size: 13px !important; }
+    .find-out .logos .find-logo { height: auto; max-width: 140px; }
+    .mobile-drawer .drawer-nav a { font-size: 1.25rem; padding: 16px 0; }
+}
+
+/* Turn testimonials grid into a horizontal, swipeable carousel on small screens */
+@media (max-width: 640px) {
+    .testimonials-grid {
+        display: flex !important;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .testimonials-grid > div {
+        flex: 0 0 100%;
+        min-width: 100%;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    /* hide native scrollbar for cleaner look */
+    .testimonials-grid::-webkit-scrollbar { display: none; }
+}
+
+/* carousel prev/next buttons styling (visible on small screens) */
+.testimonials-wrap { position: relative; }
+.test-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    border: none;
+}
+.test-btn[disabled] { opacity: 0.45; }
+.test-btn svg { display: block; }
+#testimonial-prev { left: 8px; }
+#testimonial-next { right: 8px; }
+
+@media (min-width: 641px) {
+    .test-btn { display: none; }
 }
