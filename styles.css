@@ -350,7 +350,7 @@ header {
     z-index: 70;
     width: 100%;
     background: transparent;
-    transform: translateY(-20px);
+    transform: translateY(-24px);
     opacity: 0;
     pointer-events: none;
     transition: transform 260ms cubic-bezier(.22,.98,.42,1), opacity 200ms ease;
@@ -375,11 +375,16 @@ header {
 .site-nav-sticky.visible .sticky-inner {
     background: #fff;
     border-radius: 9999px;
-    padding: 0.9rem 1.5rem; /* increased vertical padding for taller pill */
-    min-height: 64px; /* ensure consistent height */
+    padding: 1rem 1.5rem; /* moderate vertical padding */
+    min-height: 64px; /* moderate height */
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
+}
+
+/* moderate logo inside the sticky pill */
+.site-nav-sticky .sticky-inner img {
+    height: 48px;
 }
 
 .site-nav-sticky.hidden-sm {
