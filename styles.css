@@ -331,16 +331,24 @@ header {
 
 /* Sticky duplicate nav (appears when original nav scrolls out) */
 .site-nav-sticky {
-    display: none;
+    /* keep the nav in the DOM so we can animate it smoothly */
+    display: flex;
     position: fixed;
     top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     z-index: 70;
-    width: calc(100% - 160px);
-    max-width: 1180px;
+    width: 100%;
     background: transparent;
-    transition: opacity 220ms ease, transform 220ms ease;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 260ms cubic-bezier(.22,.98,.42,1), opacity 200ms ease;
+}
+
+.site-nav-sticky .sticky-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .site-nav-sticky ul {
@@ -348,14 +356,19 @@ header {
 }
 
 .site-nav-sticky.visible {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.site-nav-sticky.visible .sticky-inner {
     background: #fff;
     border-radius: 9999px;
-    padding: 0.55rem 1.5rem;
+    padding: 0.9rem 1.5rem; /* increased vertical padding for taller pill */
+    min-height: 64px; /* ensure consistent height */
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    opacity: 1;
+    display: flex;
+    align-items: center;
 }
 
 .site-nav-sticky.hidden-sm {

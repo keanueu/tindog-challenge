@@ -63,21 +63,23 @@
 
             <!-- Duplicate nav used as the sticky pill shown when original nav scrolls out of view -->
             <nav id="sticky-nav" class="site-nav-sticky" aria-hidden="true">
-                <div class="flex items-center space-x-2">
-                    <a href="#" aria-label="Tindog home">
-                        <img src="images/hero/logo.png" alt="Tindog logo" class="h-12">
-                    </a>
+                <div class="sticky-inner max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <a href="#" aria-label="Tindog home">
+                            <img src="images/hero/logo2.png" alt="Tindog logo" class="h-12">
+                        </a>
+                    </div>
+                    <ul class="hidden md:flex space-x-12 items-center font-medium">
+                        <li><a href="#features" class="hover:opacity-80 transition">Features</a></li>
+                        <li><a href="#testimonials" class="hover:opacity-80 transition">Testimonials</a></li>
+                        <li><a href="#guides" class="hover:opacity-80 transition">Guides</a></li>
+                        <li>
+                            <a href="#download"
+                                class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">Get
+                                the app</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="hidden md:flex space-x-12 items-center font-medium">
-                    <li><a href="#features" class="hover:opacity-80 transition">Features</a></li>
-                    <li><a href="#testimonials" class="hover:opacity-80 transition">Testimonials</a></li>
-                    <li><a href="#guides" class="hover:opacity-80 transition">Guides</a></li>
-                    <li>
-                        <a href="#download"
-                            class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">Get
-                            the app</a>
-                    </li>
-                </ul>
             </nav>
 
 
@@ -104,16 +106,13 @@
                         <!-- Badge Row Container: Keeps them tightly packed and left-aligned -->
                         <div class="flex flex-row items-center gap-3 flex-nowrap">
                             <!-- Google Play Store Badge -->
-                            <a href="#"
-                                class="inline-block "
-                                aria-label="Download Tindog on Google Play Store">
+                            <a href="#" class="inline-block " aria-label="Download Tindog on Google Play Store">
                                 <!-- Downsized footprint: h-10 (40px) on mobile, h-12 (48px) on desktop -->
                                 <img src="images/hero/google-play.png" alt="Google Play Store Badge"
                                     class="h-10 md:h-12 w-auto object-contain block">
                             </a>
                             <!-- Apple App Store Badge -->
-                            <a href="#"
-                                class="inline-block transition"
+                            <a href="#" class="inline-block transition"
                                 aria-label="Download Tindog on the Apple App Store">
                                 <!-- Downsized footprint: h-10 (40px) on mobile, h-12 (48px) on desktop -->
                                 <img src="images/hero/app-store.png" alt="App Store Badge"
@@ -136,8 +135,7 @@
 
     </header>
 
-    <!-- Sentinel marking the bottom curve of the hero/arch. When the user scrolls past
-            this point the sticky nav will hide. -->
+    <!-- arch hero bg. -->
     <div id="hero-curve" aria-hidden="true"></div>
 
     <main class="max-w-7xl mx-auto px-6">
@@ -182,7 +180,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
                 <!-- Card -->
-                <div class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
+                <div
+                    class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
 
                     <!-- Avatars -->
                     <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[120px] h-[80px]">
@@ -219,7 +218,7 @@
                             “
                         </span>
 
-                                <p class="poppins text-md leading-relaxed text-black mx-auto">
+                        <p class="poppins text-md leading-relaxed text-black mx-auto">
                             I really like Tindog for my pet <br> Huskier.
                             Tindog really gave me an accurate and
                             safe results. Will recommend this one!
@@ -273,7 +272,8 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
+                <div
+                    class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
                     <!-- Avatars -->
                     <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[120px] h-[80px]">
 
@@ -333,15 +333,15 @@
 
         <section id="download" class="py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
             <div class="space-y-6">
-                    <p class="text-[40px] text-[#FF6254] font-normal nanum">Don't make your dog lonely</p>
-                    <h1 class="text-3xl md:text-5xl text-black font-semibold leading-tight poppins">
-                        Get your dog a <br>
-                        <span class="inline-block mt-6">partner in life</span>
-                    </h1>
-                    <a href="#"
-                        class="poppins inline-block bg-[#FF6254] text-white px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">
-                        Get the app
-                    </a>
+                <p class="text-[40px] text-[#FF6254] font-normal nanum">Don't make your dog lonely</p>
+                <h1 class="text-3xl md:text-5xl text-black font-semibold leading-tight poppins">
+                    Get your dog a <br>
+                    <span class="inline-block mt-6">partner in life</span>
+                </h1>
+                <a href="#"
+                    class="poppins inline-block bg-[#FF6254] text-white px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">
+                    Get the app
+                </a>
             </div>
 
             <div class="relative flex justify-center md:justify-end">
@@ -352,87 +352,90 @@
         </section>
 
     </main>
-    
-<footer class="w-full text-white mt-20 relative overflow-hidden custom-footer z-20">
-    <div class="pt-32 pb-8">
-        
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[1.2fr_0.7fr_0.7fr_1.4fr] gap-y-6 gap-x-4 pb-12">
 
-            <div class="space-y-4 pr-2">
-                <div class="flex items-center space-x-2">
-                    <a href="#" aria-label="Tindog home">
-                        <img src="images/hero/logo.png" alt="Tindog logo" class="h-10">
-                    </a>
+    <footer class="w-full text-white mt-20 relative overflow-hidden custom-footer z-20">
+        <div class="pt-32 pb-8">
+
+            <div
+                class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[1.2fr_0.7fr_0.7fr_1.4fr] gap-y-6 gap-x-4 pb-12">
+
+                <div class="space-y-4 pr-2">
+                    <div class="flex items-center space-x-2">
+                        <a href="#" aria-label="Tindog home">
+                            <img src="images/hero/logo.png" alt="Tindog logo" class="h-10">
+                        </a>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and
+                        a
+                        dog adoption project. Be a part of this change.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" aria-label="Tindog Facebook Page" class="hover:opacity-70 transition">
+                            <img src="images/footer/fb.svg" alt="Facebook" class="h-4 w-auto">
+                        </a>
+                        <a href="#" aria-label="Tindog Twitter Profile" class="hover:opacity-70 transition">
+                            <img src="images/footer/twitter.svg" alt="Twitter" class="h-4 w-auto">
+                        </a>
+                        <a href="#" aria-label="Tindog Phone" class="hover:opacity-70 transition">
+                            <img src="images/footer/phone.svg" alt="Phone" class="h-4 w-auto">
+                        </a>
+                        <a href="#" aria-label="Email Tindog Support" class="hover:opacity-70 transition">
+                            <img src="images/footer/mail.svg" alt="Email" class="h-4 w-auto">
+                        </a>
+                    </div>
                 </div>
-                <p class="text-sm leading-relaxed">
-                    Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and a
-                    dog adoption project. Be a part of this change.
-                </p>
-                <div class="flex space-x-4 pt-2">
-                    <a href="#" aria-label="Tindog Facebook Page" class="hover:opacity-70 transition">
-                        <img src="images/footer/fb.svg" alt="Facebook" class="h-4 w-auto">
-                    </a>
-                    <a href="#" aria-label="Tindog Twitter Profile" class="hover:opacity-70 transition">
-                        <img src="images/footer/twitter.svg" alt="Twitter" class="h-4 w-auto">
-                    </a>
-                    <a href="#" aria-label="Tindog Phone" class="hover:opacity-70 transition">
-                        <img src="images/footer/phone.svg" alt="Phone" class="h-4 w-auto">
-                    </a>
-                    <a href="#" aria-label="Email Tindog Support" class="hover:opacity-70 transition">
-                        <img src="images/footer/mail.svg" alt="Email" class="h-4 w-auto">
-                    </a>
-                </div>
+
+                <nav aria-label="Footer Quick Links" class="md:pl-12">
+                    <h3 class="font-medium text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">Guides</a></li>
+                        <li><a href="#" class="hover:underline">Terms and Conditions</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+
+                <section aria-label="Contact Details">
+                    <h3 class="font-medium text-lg mb-4">Contact Us</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li>
+                            <span class="block font-light">Local Sales:</span>
+                            <span>(632) 5324-8888</span>
+                        </li>
+                        <li>
+                            <span class="block font-extralight">Local Sales:</span>
+                            <span>(632) 5324-8888</span>
+                        </li>
+                        <li>
+                            <span class="block font-light">Local Sales:</span>
+                            <span>(632) 5324-8888</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section aria-label="Download Options" class="space-y-4 text-left">
+                    <h3 class="text-3xl nanum">Download the app now</h3>
+                    <div class="flex flex-row items-start justify-start gap-3">
+                        <a href="#" class="inline-block " aria-label="Download Tindog on Google Play Store">
+                            <img src="images/hero/google-play.png" alt="Google Play Store Badge"
+                                class="h-10 md:h-12 w-auto object-contain block">
+                        </a>
+                        <a href="#" class="inline-block " aria-label="Download Tindog on the Apple App Store">
+                            <img src="images/hero/app-store.png" alt="App Store Badge"
+                                class="h-10 md:h-12 w-auto object-contain block">
+                        </a>
+                    </div>
+                </section>
+
             </div>
 
-            <nav aria-label="Footer Quick Links" class="md:pl-12">
-                <h3 class="font-medium text-lg mb-4">Quick Links</h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:underline">Guides</a></li>
-                    <li><a href="#" class="hover:underline">Terms and Conditions</a></li>
-                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                </ul>
-            </nav>
-
-            <section aria-label="Contact Details">
-                <h3 class="font-medium text-lg mb-4">Contact Us</h3>
-                <ul class="space-y-4 text-sm">
-                    <li>
-                        <span class="block font-light">Local Sales:</span>
-                        <span>(632) 5324-8888</span>
-                    </li>
-                    <li>
-                        <span class="block font-extralight">Local Sales:</span>
-                        <span>(632) 5324-8888</span>
-                    </li>
-                    <li>
-                        <span class="block font-light">Local Sales:</span>
-                        <span>(632) 5324-8888</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section aria-label="Download Options" class="space-y-4 text-left">
-                <h3 class="text-3xl nanum">Download the app now</h3>
-                <div class="flex flex-row items-start justify-start gap-3">
-                    <a href="#" class="inline-block "
-                        aria-label="Download Tindog on Google Play Store">
-                        <img src="images/hero/google-play.png" alt="Google Play Store Badge"
-                            class="h-10 md:h-12 w-auto object-contain block">
-                    </a>
-                    <a href="#" class="inline-block "
-                        aria-label="Download Tindog on the Apple App Store">
-                        <img src="images/hero/app-store.png" alt="App Store Badge" class="h-10 md:h-12 w-auto object-contain block">
-                    </a>
-                </div>
-            </section>
-
+            <div class="max-w-7xl mx-auto px-6 pt-6 text-center md:text-left text-xs">
+                <p>Tindog &copy; 2026. All Rights Reserved.</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="max-w-7xl mx-auto px-6 pt-6 text-center md:text-left text-xs">
-            <p>Tindog &copy; 2026. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    <script src="sticky-nav.js" defer></script>
 </body>
 
 </html>
