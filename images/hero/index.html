@@ -1,94 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Tindog - Get your dog a partner in life</title>
-    <meta name="description" content="Tindog assists dog owners whose pets are lonely. Find a partner, adopt, or connect with veterinarians and dog adoption projects near you.">
-    
+    <meta name="description"
+        content="Tindog assists dog owners whose pets are lonely. Find a partner, adopt, or connect with veterinarians and dog adoption projects near you.">
+
     <meta property="og:title" content="Tindog - Get your dog a partner in life">
-    <meta property="og:description" content="Tindog assists dog owners whose pets are lonely. Match, connect, and adopt today.">
+    <meta property="og:description"
+        content="Tindog assists dog owners whose pets are lonely. Match, connect, and adopt today.">
     <meta property="og:image" content="hero-img.png">
     <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Apply Poppins to navigation */
-        nav, nav * { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+        nav,
+        nav * {
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
         /* Nanum Pen Script for handwritten headings/callouts */
-        .nanum { font-family: 'Nanum Pen Script', cursive; }
+        .nanum {
+            font-family: 'Nanum Pen Script', cursive;
+        }
     </style>
 </head>
+
 <body class="bg-white text-gray-800 antialiased">
 
-    <header class="relative w-full overflow-hidden min-h-screen text-white" style="background: linear-gradient(111.52deg, #F29D6A 10.78%, #FF6254 83.54%);">
-        <div class="max-w-7xl mx-auto px-6 pt-16 pb-32 md:pb-48 text-white">
-            
-            <nav class="flex justify-between items-center mb-12 md:mb-24">
+    <header class="relative w-full overflow-hidden min-h-screen text-white">
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 pb-32 md:pb-48 text-white relative z-20">
+
+            <nav class="flex justify-between items-center mb-12 md:mb-24 relative z-30">
                 <div class="flex items-center space-x-2">
                     <a href="#" aria-label="Tindog home">
                         <img src="/images/hero/logo.png" alt="Tindog logo" class="h-12">
                     </a>
                 </div>
-                <ul class="hidden md:flex space-x-8 items-center font-medium">
+                <ul class="hidden md:flex space-x-12 items-center font-medium">
                     <li><a href="#features" class="hover:opacity-80 transition">Features</a></li>
                     <li><a href="#testimonials" class="hover:opacity-80 transition">Testimonials</a></li>
                     <li><a href="#guides" class="hover:opacity-80 transition">Guides</a></li>
                     <li>
-                        <a href="#download" class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-semibold shadow-sm hover:bg-opacity-90 transition">
+                        <a href="#download"
+                            class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">
                             Get the app
                         </a>
                     </li>
                 </ul>
             </nav>
 
-            
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                <div class="space-y-6">
-                    <p class="text-lg font-medium opacity-90 nanum">Don't make your dog lonely</p>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                        Get your dog a partner in life
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center hero-grid">
+                <div class="space-y-6 hero-left">
+                    <p class="text-4xl font-normal nanum">Don't make your dog lonely</p>
+                    <h1 class="text-3xl md:text-5xl font-semibold leading-tight poppins">
+                        Get your dog a <br>
+                        <span class="inline-block mt-6">partner in life</span>
                     </h1>
-                    <p class="text-base md:text-lg opacity-90 max-w-lg leading-relaxed">
-                        Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and a dog adoption project. Be a part of this change.
+                    <p class="text-md font-extralight max-w-lg leading-relaxed poppins">
+                        Tindog assists dog owners whose pets are lonely. <br> Tindog also collaborated with
+                        veterinarians and
+                        a dog <br> adoption project. Be a part of this change.
                     </p>
-                    
-                    <div class="pt-4 text-center md:text-left">
-                        <p class="nanum text-3xl md:text-4xl font-semibold text-white opacity-95 mb-4">Download the app now</p>
-                        <div class="flex items-center gap-6 justify-center md:justify-start flex-nowrap whitespace-nowrap">
-                            <a href="#" class="inline-block" aria-label="Download Tindog on Google Play Store">
-                                <img src="google-play.png" alt="Google Play Store Badge" class="h-64 w-auto max-w-[480px] inline-block align-middle">
+                    <div class="pt-6 flex flex-col items-start text-left">
+                        <!-- Nanum Font Callout Header -->
+                        <p class="nanum text-3xl md:text-4xl text-white mb-4 select-none">
+                            Download the app now
+                        </p>
+
+                        <!-- Badge Row Container: Keeps them tightly packed and left-aligned -->
+                        <div class="flex flex-row items-center gap-3 flex-nowrap">
+                            <!-- Google Play Store Badge -->
+                            <a href="#"
+                                class="inline-block transition hover:opacity-90 transform hover:scale-105 flex-shrink-0"
+                                aria-label="Download Tindog on Google Play Store">
+                                <!-- Downsized footprint: h-10 (40px) on mobile, h-12 (48px) on desktop -->
+                                <img src="google-play.png" alt="Google Play Store Badge"
+                                    class="h-10 md:h-12 w-auto object-contain block">
                             </a>
-                            <a href="#" class="inline-block" aria-label="Download Tindog on the Apple App Store">
-                                <img src="app-store.png" alt="App Store Badge" class="h-64 w-auto max-w-[480px] inline-block align-middle">
+                            <!-- Apple App Store Badge -->
+                            <a href="#"
+                                class="inline-block transition hover:opacity-90 transform hover:scale-105 flex-shrink-0"
+                                aria-label="Download Tindog on the Apple App Store">
+                                <!-- Downsized footprint: h-10 (40px) on mobile, h-12 (48px) on desktop -->
+                                <img src="app-store.png" alt="App Store Badge"
+                                    class="h-10 md:h-12 w-auto object-contain block">
                             </a>
                         </div>
                     </div>
                 </div>
 
+
                 <div class="relative flex justify-center">
                     <div class="absolute bottom-4 z-0"></div>
-                    <img src="hero-img.png" alt="Tindog app running on a smartphone featuring a happy dog" class="relative z-10 max-w-sm w-full object-contain">
+                    <img src="hero-img.png" alt="Tindog app running on a smartphone featuring a happy dog"
+                        class="relative z-10 hero-image object-contain">
                 </div>
             </div>
 
         </div>
-        
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden h-[120px] md:h-[220px]" style="line-height:0;">
-            <svg class="relative block w-full h-full" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,200 Q720,40 1440,200 L1440,200 L0,200 Z" fill="#ffffff"></path>
-            </svg>
-        </div>
+
+     
     </header>
 
     <main class="max-w-7xl mx-auto px-6">
 
         <section class="py-12 border-b border-gray-100 text-center" aria-label="Our Partners">
             <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-8">Find out more</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition duration-300">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition duration-300">
                 <img src="logo.png" alt="The Philippine Animal Welfare Society (PAWS) Logo">
                 <img src="logo.png" alt="Bureau of Animal Industry Logo">
                 <img src="logo.png" alt="Pawssion Project Logo">
@@ -99,13 +130,15 @@
         <section id="testimonials" class="py-20 text-center">
             <p class="text-[#FF5E62] font-semibold text-sm tracking-wide uppercase mb-2">Superb testimonials</p>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">See what they say about us</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                
-                <article class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
+
+                <article
+                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
                     <div>
                         <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe" class="w-12 h-12 rounded-full object-cover">
+                            <img src="../testimonials/item.png" alt="Jane Doe"
+                                class="w-12 h-12 rounded-full object-cover">
                             <div>
                                 <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
                                 <p class="text-sm text-gray-500">Pet: Husky</p>
@@ -115,15 +148,18 @@
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                         <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe results. Will recommend this one!"
+                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
+                            results. Will recommend this one!"
                         </blockquote>
                     </div>
                 </article>
 
-                <article class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
+                <article
+                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
                     <div>
                         <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe" class="w-12 h-12 rounded-full object-cover">
+                            <img src="../testimonials/item.png" alt="Jane Doe"
+                                class="w-12 h-12 rounded-full object-cover">
                             <div>
                                 <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
                                 <p class="text-sm text-gray-500">Pet: Husky</p>
@@ -133,15 +169,18 @@
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                         <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe results. Will recommend this one!"
+                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
+                            results. Will recommend this one!"
                         </blockquote>
                     </div>
                 </article>
 
-                <article class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
+                <article
+                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
                     <div>
                         <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe" class="w-12 h-12 rounded-full object-cover">
+                            <img src="../testimonials/item.png" alt="Jane Doe"
+                                class="w-12 h-12 rounded-full object-cover">
                             <div>
                                 <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
                                 <p class="text-sm text-gray-500">Pet: Husky</p>
@@ -151,7 +190,8 @@
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                         <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe results. Will recommend this one!"
+                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
+                            results. Will recommend this one!"
                         </blockquote>
                     </div>
                 </article>
@@ -168,28 +208,32 @@
         <section id="download" class="py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
                 <p class="text-[#FF5E62] font-semibold text-sm tracking-wide uppercase">Don't make your dog lonely</p>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                <h2 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight">
                     Get your dog a partner in life
                 </h2>
-                <a href="#" class="inline-block bg-[#FF5E62] text-white px-8 py-3 rounded-full font-normal shadow-md hover:bg-opacity-90 transition">
+                <a href="#"
+                    class="inline-block bg-[#FF5E62] text-white px-8 py-3 rounded-full font-normal shadow-md hover:bg-opacity-90 transition">
                     Get the app
                 </a>
             </div>
-            
+
             <div class="relative flex justify-center">
-                <p class="absolute top-0 font-handwriting text-gray-700 transform -rotate-12 text-lg md:text-xl font-medium z-10">
+                <p
+                    class="absolute top-0 font-handwriting text-gray-700 transform -rotate-12 text-lg md:text-xl font-medium z-10">
                     Get me a partner, hooman!
                 </p>
                 <div class="absolute w-64 h-64 bg-[#9B5DE5] rounded-full bottom-0 z-0"></div>
-                <img src="hero-img.png" alt="Winking, happy dog looking forward to finding a partner" class="relative z-10 max-w-xs w-full object-contain">
+                <img src="hero-img.png" alt="Winking, happy dog looking forward to finding a partner"
+                    class="relative z-10 max-w-xs w-full object-contain">
             </div>
         </section>
 
     </main>
 
     <footer class="w-full bg-gradient-to-b from-[#FF8E6E] to-[#FF5E62] text-white mt-20 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white border-opacity-20 pb-12">
-            
+        <div
+            class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white border-opacity-20 pb-12">
+
             <div class="space-y-4">
                 <div class="flex items-center space-x-2">
                     <a href="#" aria-label="Tindog home">
@@ -197,7 +241,8 @@
                     </a>
                 </div>
                 <p class="text-sm opacity-90 leading-relaxed">
-                    Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and a dog adoption project. Be a part of this change.
+                    Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and a
+                    dog adoption project. Be a part of this change.
                 </p>
                 <div class="flex space-x-4 pt-2">
                     <a href="#" aria-label="Tindog Facebook Page" class="hover:opacity-70 transition">🌐</a>
@@ -254,4 +299,5 @@
     </footer>
 
 </body>
+
 </html>

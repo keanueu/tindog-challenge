@@ -12,8 +12,9 @@
     <meta property="og:image" content="hero-img.png">
     <meta property="og:type" content="website">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+n    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Apply Poppins to navigation */
         nav, nav * { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
@@ -23,8 +24,8 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-n    <header class="w-full bg-gradient-to-b from-[#FF8E6E] to-[#FF5E62] text-white overflow-hidden min-h-screen relative">
-        <div class="max-w-7xl mx-auto px-6 py-4 md:py-12">
+n    <header class="relative w-full overflow-hidden min-h-screen text-white" style="background: linear-gradient(111.52deg, #F29D6A 10.78%, #FF6254 83.54%);">
+        <div class="max-w-7xl mx-auto px-6 pt-12 pb-32 md:pb-48 text-white">
             
             <nav class="flex justify-between items-center mb-12 md:mb-24">
                 <div class="flex items-center space-x-2">
@@ -37,7 +38,7 @@ n    <header class="w-full bg-gradient-to-b from-[#FF8E6E] to-[#FF5E62] text-whi
                     <li><a href="#testimonials" class="hover:opacity-80 transition">Testimonials</a></li>
                     <li><a href="#guides" class="hover:opacity-80 transition">Guides</a></li>
                     <li>
-                        <a href="#download" class="bg-white text-[#FF6254] px-12 py-3 rounded-full font-semibold shadow-sm hover:bg-opacity-90 transition">
+                        <a href="#download" class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-semibold shadow-sm hover:bg-opacity-90 transition">
                             Get the app
                         </a>
                     </li>
@@ -46,48 +47,47 @@ n    <header class="w-full bg-gradient-to-b from-[#FF8E6E] to-[#FF5E62] text-whi
 
 n            
 
-n            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+n            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
-                    <p class="text-lg font-medium opacity-90 nanum">Don't make your dog lonely</p>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                    <p class="text-4xl font-medium opacity-90 nanum">Don't make your dog lonely</p>
+                    <h1 class="text-4xl md:text-6xl font-medium leading-tight">
                         Get your dog a partner in life
                     </h1>
                     <p class="text-base md:text-lg opacity-90 max-w-lg leading-relaxed">
                         Tindog assists dog owners whose pets are lonely. Tindog also collaborated with veterinarians and a dog adoption project. Be a part of this change.
                     </p>
                     
-                    <div class="pt-4 space-y-2">
-                        <p class="text-sm font-semibold tracking-wide uppercase opacity-75 nanum">Download the app now</p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#" class="inline-block" aria-label="Download Tindog on Google Play Store">
-                                <img src="google-play.png" alt="Google Play Store Badge" class="h-12">
-                            </a>
-                            <a href="#" class="inline-block" aria-label="Download Tindog on the Apple App Store">
-                                <img src="app-store.png" alt="App Store Badge" class="h-64">
-                            </a>
-                        </div>
+                    <div class="pt-4 text-center md:text-left">
+                            <p class="nanum download-heading text-white opacity-95">Download the app now</p>
+                            <div class="download-badges">
+                                <a href="#" class="inline-block" aria-label="Download Tindog on Google Play Store">
+                                    <img src="google-play.png" alt="Google Play Store Badge" class="download-badge">
+                                </a>
+                                <a href="#" class="inline-block" aria-label="Download Tindog on the Apple App Store">
+                                    <img src="app-store.png" alt="App Store Badge" class="download-badge">
+                                </a>
+                            </div>
                     </div>
                 </div>
 
-                <div class="relative flex justify-center">
+n                    <div class="relative flex justify-center">
                     <div class="absolute bottom-4 z-0"></div>
-                    <img src="hero-img.png" alt="Tindog app running on a smartphone featuring a happy dog" class="relative z-10 max-w-sm w-full object-contain">
+                    <img src="hero-img.png" alt="Tindog app running on a smartphone featuring a happy dog" class="relative z-10 hero-image object-contain">
                 </div>
             </div>
 
-        </div>
+n        </div>
         
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none" style="height:200px;">
-            <svg class="relative block w-full h-full" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Single smooth wave across the width -->
-                <path d="M0,140 C200,100 400,100 600,120 C800,140 1000,140 1200,120 L1200,200 L0,200 Z" fill="#ffffff"></path>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden h-[120px] md:h-[220px]" style="line-height:0;">
+            <svg class="relative block w-full h-full" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,200 Q720,40 1440,200 L1440,200 L0,200 Z" fill="#ffffff"></path>
             </svg>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6">
+n    <main class="max-w-7xl mx-auto px-6">
 
-        <section class="py-12 border-b border-gray-100 text-center" aria-label="Our Partners">
+n        <section class="py-12 border-b border-gray-100 text-center" aria-label="Our Partners">
             <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-8">Find out more</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition duration-300">
                 <img src="logo.png" alt="The Philippine Animal Welfare Society (PAWS) Logo">
@@ -97,7 +97,7 @@ n            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             </div>
         </section>
 
-        <section id="testimonials" class="py-20 text-center">
+n        <section id="testimonials" class="py-20 text-center">
             <p class="text-[#FF5E62] font-semibold text-sm tracking-wide uppercase mb-2">Superb testimonials</p>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">See what they say about us</h2>
             
@@ -120,23 +120,4 @@ n            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         </blockquote>
                     </div>
                 </article>
-
-                <article class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
-                                <p class="text-sm text-gray-500">Pet: Husky</p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-1 text-amber-400 mb-4" aria-label="5 out of 5 stars rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe results. Will recommend this one!"
-                        </blockquote>
-                    </div>
-                </article>
-
-n
+...
