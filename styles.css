@@ -60,6 +60,19 @@
     transform: translateY(-44px);
 }
 
+/* Responsive helper: show line-break only on large screens */
+.br-lg {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .br-lg {
+        display: block;
+        width: 100%;
+        height: 0;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-left {
         transform: translateY(-28px);
@@ -93,28 +106,53 @@ nav * {
     font-family: 'Nanum Pen Script', cursive;
 }
 
-
-
-/* Arch image: use `hero-container.png` placed to overlap the hero */
-.hero-arch-image {
-    bottom: -180px;
-    /* overlap slightly more into the hero area (moved higher) */
-    width: 100%;
-    height: 240px;
-    background-image: url('images/hero/hero-container.png');
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: cover;
-    pointer-events: none;
-    z-index: 5;
-    /* sit below hero content (content container uses z-20) */
+/* Download artwork: scoped responsive rules (clean, non-conflicting) */
+@media (max-width: 420px) {
+    #download img[src$="get-app.png"] {
+        transform: translateY(22rem) !important;
+        width: 220% !important;
+        max-width: none !important;
+        margin-bottom: 1.5rem !important;
+        z-index: 0 !important;
+        object-fit: contain;
+    }
 }
 
-@media (max-width: 1024px) {
-    .hero-arch-image {
-        bottom: -145px;
-        height: 210px;
-        background-size: cover;
+@media (max-width: 640px) and (min-width: 421px) {
+    #download img[src$="get-app.png"] {
+        transform: translateY(20rem) !important;
+        width: 180% !important;
+        max-width: none !important;
+        margin-bottom: 1rem !important;
+        z-index: 0 !important;
+        object-fit: contain;
+    }
+}
+
+/* Desktop overrides (md and up) — restore original desktop position and sizing */
+@media (min-width: 768px) {
+    #download img[src$="get-app.png"] {
+        transform: translateY(18rem) !important; /* moved lower */
+        width: 36rem !important; /* md:w-[36rem] */
+        max-width: none !important;
+        margin-bottom: 0 !important;
+        z-index: 0 !important;
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 1024px) {
+    #download img[src$="get-app.png"] {
+        transform: translateY(18rem) !important;
+        width: 36rem !important;
+    }
+}
+
+/* Larger desktop sizing: make the download artwork bigger on wide screens */
+@media (min-width: 1200px) {
+    #download img[src$="get-app.png"] {
+        width: 44rem !important;
+        transform: translateY(18rem) !important;
     }
 }
 
@@ -222,6 +260,49 @@ header {
     .find-out .logos .find-logo {
         height: 92px;
         max-width: 160px;
+    }
+}
+
+/* Mobile: center and lower the hero text/content for better fit */
+@media (max-width: 640px) {
+    .hero-left {
+        transform: none !important;
+        padding-top: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .hero-left .nanum {
+        margin: 0 0 8px 0;
+    }
+
+    .hero-left h1 {
+        margin: 0 auto 12px auto;
+    }
+
+    .hero-left p {
+        margin: 0 auto 16px auto;
+        max-width: 90%;
+    }
+
+    /* Center the badges/CTAs */
+    .hero-left .pt-6 {
+        padding-top: 0.5rem;
+    }
+
+    .hero-left .pt-6 .flex {
+        justify-content: center;
+    }
+
+    /* Reduce left spacing so content appears visually lower and centered */
+    .max-w-7xl.mx-auto.px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -345,15 +426,17 @@ header {
     /* keep the nav in the DOM so we can animate it smoothly */
     display: flex;
     position: fixed;
-    top: 18px;
+    top: 0;
+    /* pin to very top */
     left: 0;
-    z-index: 70;
+    z-index: 100005;
+    /* sit above all other content and drawers */
     width: 100%;
     background: transparent;
     transform: translateY(-24px);
     opacity: 0;
     pointer-events: none;
-    transition: transform 260ms cubic-bezier(.22,.98,.42,1), opacity 200ms ease;
+    transition: transform 260ms cubic-bezier(.22, .98, .42, 1), opacity 200ms ease;
 }
 
 .site-nav-sticky .sticky-inner {
@@ -375,8 +458,10 @@ header {
 .site-nav-sticky.visible .sticky-inner {
     background: #fff;
     border-radius: 9999px;
-    padding: 1rem 1.5rem; /* moderate vertical padding */
-    min-height: 64px; /* moderate height */
+    padding: 1rem 1.5rem;
+    /* moderate vertical padding */
+    min-height: 64px;
+    /* moderate height */
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
@@ -399,38 +484,41 @@ header {
     /* sit above everything when opened */
     z-index: 99999;
 }
+
 .mobile-drawer .drawer-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0, 0, 0, 0.35);
     opacity: 0;
     transition: opacity 200ms ease;
     /* ensure backdrop covers content */
     z-index: 99999;
 }
- .mobile-drawer .drawer-panel {
-     position: absolute;
-     top: 0;
-     right: 0;
-     height: 100%;
-     width: 88%;
-     max-width: 360px;
-     /* White panel background for the drawer */
-     background: #ffffff;
-     color: #111827;
-     box-shadow: -12px 0 32px rgba(0,0,0,0.12);
-     transform: translateX(100%);
-     transition: transform 300ms cubic-bezier(.22,.98,.42,1);
-     pointer-events: auto;
-     display: flex;
-     flex-direction: column;
-     /* make sure the panel is visually on top of the backdrop and nav */
-     z-index: 100000;
- }
+
+.mobile-drawer .drawer-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 88%;
+    max-width: 360px;
+    /* White panel background for the drawer */
+    background: #ffffff;
+    color: #111827;
+    box-shadow: -12px 0 32px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 300ms cubic-bezier(.22, .98, .42, 1);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    /* make sure the panel is visually on top of the backdrop and nav */
+    z-index: 100000;
+}
 
 /* Move drawer header contents slightly lower for better spacing */
 .mobile-drawer .drawer-header {
-    padding-top: 1.25rem; /* push logo and close button down */
+    padding-top: 1.25rem;
+    /* push logo and close button down */
     padding-bottom: 0.75rem;
     align-items: center;
 }
@@ -438,6 +526,7 @@ header {
 .mobile-drawer .drawer-header a img {
     display: block;
 }
+
 .mobile-drawer .drawer-nav {
     display: flex;
     flex-direction: column;
@@ -455,22 +544,31 @@ header {
     text-align: center;
     padding: 14px 0;
     font-weight: 700;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
+    /* 18px */
     color: #ff6254;
     text-decoration: none;
 }
 
 .mobile-drawer .drawer-nav a:hover,
 .mobile-drawer .drawer-nav a:focus {
-    background: rgba(255,98,84,0.06);
+    background: rgba(255, 98, 84, 0.06);
     border-radius: 8px;
     outline: none;
 }
-.mobile-drawer.open .drawer-backdrop { opacity: 1; }
-.mobile-drawer.open .drawer-panel { transform: translateX(0); }
+
+.mobile-drawer.open .drawer-backdrop {
+    opacity: 1;
+}
+
+.mobile-drawer.open .drawer-panel {
+    transform: translateX(0);
+}
 
 @media (min-width: 768px) {
-    .mobile-drawer { display: none; }
+    .mobile-drawer {
+        display: none;
+    }
 }
 
 /* Make hamburger icon white so it stands out on the hero background (exclude drawer close) */
@@ -492,7 +590,9 @@ header {
 
 /* When the drawer is closed we still keep the element in the DOM but block pointer-events;
    opening the drawer should add the `.open` class which enables interactions. */
-.mobile-drawer.open { pointer-events: auto; }
+.mobile-drawer.open {
+    pointer-events: auto;
+}
 
 /* hero-curve sentinel — invisible marker positioned at the end of the header */
 #hero-curve {
@@ -556,10 +656,11 @@ header {
     background-image: url('images/footer/footer-bg.png') !important;
     background-repeat: no-repeat !important;
     /* Change to 'center top' so the curve doesn't get pushed under the screen */
-    background-position: center top !important; 
+    background-position: center top !important;
     background-size: cover !important;
     background-color: transparent !important;
-    min-height: 450px; /* Increased to allow the asset room to render */
+    min-height: 450px;
+    /* Increased to allow the asset room to render */
     font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -585,40 +686,100 @@ img {
 
 /* Responsive adjustments for small screens */
 @media (max-width: 640px) {
+
     /* Reduce overall type scale a bit for mobile */
-    .hero-left .nanum { font-size: 20px; }
-    .hero-left h1 { font-size: 1.75rem; line-height: 1.1; }
-    .hero-left p { font-size: 14px; }
+    .hero-left .nanum {
+        font-size: 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 1.75rem;
+        line-height: 1.1;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+    }
 
     /* Make hero image smaller and avoid overflow */
-    .hero-image { width: 90%; max-width: 420px; transform: scale(1.02); }
+    .hero-image {
+        width: 90%;
+        max-width: 420px;
+        transform: scale(1.02);
+    }
 
     /* Tighten CTA buttons on mobile (targets Tailwind-like px-12 items by class substring) */
-    a[class*="px-12"] { padding-left: 1rem !important; padding-right: 1rem !important; }
-    a[class*="py-3"] { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; font-size: 14px !important; }
+    a[class*="px-12"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    a[class*="py-3"] {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        font-size: 14px !important;
+    }
 
     /* Reduce sticky pill padding on mobile so it aligns with page width */
-    .site-nav-sticky.visible .sticky-inner { padding: 0.5rem 0.75rem; min-height: 52px; }
-    .site-nav-sticky .sticky-inner img { height: 40px; }
+    .site-nav-sticky.visible .sticky-inner {
+        padding: 0.5rem 0.75rem;
+        min-height: 52px;
+    }
+
+    .site-nav-sticky .sticky-inner img {
+        height: 40px;
+    }
 
     /* Find-out logos layout adjustments */
-    .find-out .logos { gap: 1.25rem; }
+    .find-out .logos {
+        gap: 1.25rem;
+    }
 
     /* Drawer should cover full width on small phones */
-    .mobile-drawer .drawer-panel { width: 100%; max-width: 100%; }
+    .mobile-drawer .drawer-panel {
+        width: 100%;
+        max-width: 100%;
+    }
 
     /* Make close button and hamburger touch targets comfortable */
-    button { touch-action: manipulation; }
-    #mobile-toggle, #mobile-toggle-sticky, #drawer-close { padding: 8px !important; }
+    button {
+        touch-action: manipulation;
+    }
+
+    #mobile-toggle,
+    #mobile-toggle-sticky,
+    #drawer-close {
+        padding: 8px !important;
+    }
 }
 
 @media (max-width: 480px) {
-    .hero-left h1 { font-size: 1.5rem; }
-    .hero-left .nanum { font-size: 18px; }
-    a[class*="px-12"] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
-    a[class*="py-3"] { font-size: 13px !important; }
-    .find-out .logos .find-logo { height: auto; max-width: 140px; }
-    .mobile-drawer .drawer-nav a { font-size: 1.25rem; padding: 16px 0; }
+    .hero-left h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-left .nanum {
+        font-size: 18px;
+    }
+
+    a[class*="px-12"] {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    a[class*="py-3"] {
+        font-size: 13px !important;
+    }
+
+    .find-out .logos .find-logo {
+        height: auto;
+        max-width: 140px;
+    }
+
+    .mobile-drawer .drawer-nav a {
+        font-size: 1.25rem;
+        padding: 16px 0;
+    }
 }
 
 /* Turn testimonials grid into a horizontal, swipeable carousel on small screens */
@@ -633,7 +794,7 @@ img {
         padding-bottom: 0.5rem;
     }
 
-    .testimonials-grid > div {
+    .testimonials-grid>div {
         flex: 0 0 100%;
         min-width: 100%;
         scroll-snap-align: start;
@@ -641,11 +802,16 @@ img {
     }
 
     /* hide native scrollbar for cleaner look */
-    .testimonials-grid::-webkit-scrollbar { display: none; }
+    .testimonials-grid::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 /* carousel prev/next buttons styling (visible on small screens) */
-.testimonials-wrap { position: relative; }
+.testimonials-wrap {
+    position: relative;
+}
+
 .test-btn {
     position: absolute;
     top: 50%;
@@ -654,18 +820,63 @@ img {
     height: 44px;
     border-radius: 9999px;
     background: #ffffff;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 60;
     border: none;
 }
-.test-btn[disabled] { opacity: 0.45; }
-.test-btn svg { display: block; }
-#testimonial-prev { left: 8px; }
-#testimonial-next { right: 8px; }
+
+.test-btn[disabled] {
+    opacity: 0.45;
+}
+
+.test-btn svg {
+    display: block;
+}
+
+#testimonial-prev {
+    left: 8px;
+}
+
+#testimonial-next {
+    right: 8px;
+}
 
 @media (min-width: 641px) {
-    .test-btn { display: none; }
+    .test-btn {
+        display: none;
+    }
+}
+
+/* Responsive logo sizing for header, sticky pill, and drawer */
+#main-nav a img,
+.site-nav-sticky .sticky-inner img,
+.drawer-header a img {
+    height: 48px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+
+    #main-nav a img,
+    .site-nav-sticky .sticky-inner img,
+    .drawer-header a img {
+        height: 40px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    #main-nav a img,
+    .site-nav-sticky .sticky-inner img,
+    .drawer-header a img {
+        height: 32px;
+    }
+
+    /* Reduce top margin on hero span to keep heading tighter */
+    .hero-left h1 .inline-block {
+        margin-top: 0.25rem;
+    }
 }
