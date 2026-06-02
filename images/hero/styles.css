@@ -109,3 +109,125 @@ header {
 }
 
 /* overlay intentionally removed so hero background displays plainly */
+
+/* --- Find Out section: centered heading, down arrow, and grayscale logos --- */
+/* pull the Find Out section upward so it sits closer to the arch */
+.find-out {
+  margin-top: -190px;
+  padding-top: 6px;
+}
+
+.find-out .nanum {
+  font-size: 32px;
+  color: #000000; /* gray-800 */
+  
+}
+
+.find-out svg { color: #000000; /* gray-500 */ display: block; margin: 0 auto -10px; }
+
+.find-out .logos { margin-top: 8px; gap: 6rem; }
+
+.find-out .logos .find-logo {
+  height: 150px;
+  max-width: 320px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 1;
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .find-out { margin-top: -170px; }
+  .find-out .nanum { font-size: 32px; }
+  .find-out .logos { gap: 5rem; }
+  .find-out .logos .find-logo { height: 130px; max-width: 260px; }
+}
+
+@media (max-width: 900px) {
+  .find-out .nanum { font-size: 30px; }
+  .find-out .logos { gap: 3.5rem; }
+  .find-out .logos .find-logo { height: 110px; max-width: 240px; }
+}
+
+@media (max-width: 640px) {
+  .find-out { margin-top: -120px; }
+  .find-out .nanum { font-size: 24px; }
+  .find-out .logos { gap: 2rem; }
+  .find-out .logos .find-logo { height: 92px; max-width: 160px; }
+}
+
+/* Individual logo size adjustments to balance visual weight */
+.find-out .logos .find-logo:nth-child(1) { /* 1st: slightly smaller */
+  height: 120px;
+  max-width: 260px;
+}
+.find-out .logos .find-logo:nth-child(2) { /* 2nd: much larger */
+  height: 230px;
+  max-width: 460px;
+}
+.find-out .logos .find-logo:nth-child(3) { /* 3rd: reduce size */
+  height: 130px;
+  max-width: 280px;
+}
+.find-out .logos .find-logo:nth-child(4) { /* 4th: slightly larger */
+  height: 140px;
+  max-width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .find-out .logos .find-logo:nth-child(1) { height: 110px; max-width: 220px; }
+  .find-out .logos .find-logo:nth-child(2) { height: 200px; max-width: 400px; }
+  .find-out .logos .find-logo:nth-child(3) { height: 110px; max-width: 220px; }
+  .find-out .logos .find-logo:nth-child(4) { height: 125px; max-width: 250px; }
+}
+
+@media (max-width: 900px) {
+  .find-out .logos .find-logo:nth-child(1) { height: 100px; max-width: 200px; }
+  .find-out .logos .find-logo:nth-child(2) { height: 180px; max-width: 360px; }
+  .find-out .logos .find-logo:nth-child(3) { height: 100px; max-width: 200px; }
+  .find-out .logos .find-logo:nth-child(4) { height: 100px; max-width: 200px; }
+}
+
+@media (max-width: 640px) {
+  .find-out .logos .find-logo:nth-child(1) { height: 84px; max-width: 150px; }
+  .find-out .logos .find-logo:nth-child(2) { height: 150px; max-width: 260px; }
+  .find-out .logos .find-logo:nth-child(3) { height: 84px; max-width: 150px; }
+  .find-out .logos .find-logo:nth-child(4) { height: 92px; max-width: 160px; }
+}
+
+/* Sticky nav: becomes fixed when toggled */
+#main-nav { transition: all 220ms ease; }
+.sticky-nav {
+  position: fixed !important;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60 !important;
+  background: #fff;
+  border-radius: 9999px;
+  padding: 0.55rem 1.5rem;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  width: calc(100% - 160px);
+  max-width: 1180px;
+}
+
+#nav-spacer { height: 0; transition: height 220ms ease; }
+
+/* Sticky duplicate nav (appears when original nav scrolls out) */
+.site-nav-sticky { display: none; position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 70; width: calc(100% - 160px); max-width: 1180px; background: transparent; transition: opacity 220ms ease, transform 220ms ease; }
+.site-nav-sticky ul { background: transparent; }
+.site-nav-sticky.visible { display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 9999px; padding: 0.55rem 1.5rem; box-shadow: 0 18px 40px rgba(0,0,0,0.12); opacity: 1; }
+.site-nav-sticky.hidden-sm { display: none; }
+
+/* hero-curve sentinel — invisible marker positioned at the end of the header */
+#hero-curve { height: 1px; width: 100%; display: block; }
+
+/* Slider styles */
+.testimonials-slider { position: relative; }
+.testimonials-slider .slides { display:flex; gap:2rem; transition: transform 600ms cubic-bezier(.22,.98,.42,1); will-change: transform; }
+.testimonials-slider .slide { min-width:100%; box-sizing:border-box; display:flex; justify-content:center; }
+@media (min-width: 900px) { .testimonials-slider .slide { min-width: calc(100% / 3); } }
+.slider-dots button { width:10px; height:10px; border-radius:9999px; border:none; background:#D1D5DB; cursor:pointer; padding:0; }
+.slider-dots button.active { background:#FF5E62; box-shadow:0 4px 8px rgba(255,94,98,0.18); }
+.testimonials-slider .slide article { max-width:360px; width:100%; }
+@media (min-width:900px) { .testimonials-slider .slide article { max-width:420px; } }

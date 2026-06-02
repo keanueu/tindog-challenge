@@ -40,7 +40,7 @@
 
         <div class="max-w-7xl mx-auto px-6 pt-8 pb-32 md:pb-48 text-white relative z-20">
 
-            <nav class="flex justify-between items-center mb-12 md:mb-24 relative z-30">
+            <nav id="main-nav" class="site-nav flex justify-between items-center mb-12 md:mb-24 relative z-30">
                 <div class="flex items-center space-x-2">
                     <a href="#" aria-label="Tindog home">
                         <img src="/images/hero/logo.png" alt="Tindog logo" class="h-12">
@@ -58,6 +58,28 @@
                     </li>
                 </ul>
             </nav>
+            <!-- spacer to preserve layout when nav becomes fixed -->
+            <div id="nav-spacer" aria-hidden="true"></div>
+
+            <!-- Duplicate nav used as the sticky pill shown when original nav scrolls out of view -->
+            <nav id="sticky-nav" class="site-nav-sticky" aria-hidden="true">
+                <div class="flex items-center space-x-2">
+                    <a href="#" aria-label="Tindog home">
+                        <img src="/images/hero/logo.png" alt="Tindog logo" class="h-12">
+                    </a>
+                </div>
+                <ul class="hidden md:flex space-x-12 items-center font-medium">
+                    <li><a href="#features" class="hover:opacity-80 transition">Features</a></li>
+                    <li><a href="#testimonials" class="hover:opacity-80 transition">Testimonials</a></li>
+                    <li><a href="#guides" class="hover:opacity-80 transition">Guides</a></li>
+                    <li>
+                        <a href="#download"
+                            class="bg-white text-[#FF5E62] px-12 py-3 rounded-full font-medium shadow-sm hover:bg-opacity-90 transition">Get
+                            the app</a>
+                    </li>
+                </ul>
+            </nav>
+
 
 
 
@@ -111,99 +133,205 @@
 
         </div>
 
-     
+
     </header>
+
+    <!-- Sentinel marking the bottom curve of the hero/arch. When the user scrolls past
+            this point the sticky nav will hide. -->
+    <div id="hero-curve" aria-hidden="true"></div>
 
     <main class="max-w-7xl mx-auto px-6">
 
-        <section class="py-12 border-b border-gray-100 text-center" aria-label="Our Partners">
-            <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-8">Find out more</p>
-            <div
-                class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition duration-300">
-                <img src="logo.png" alt="The Philippine Animal Welfare Society (PAWS) Logo">
-                <img src="logo.png" alt="Bureau of Animal Industry Logo">
-                <img src="logo.png" alt="Pawssion Project Logo">
-                <img src="logo.png" alt="Animal House Logo">
+        <section class="py-12 text-center find-out" aria-label="Find out more">
+            <p class="nanum text-md text-black select-none">Find out more</p>
+            <div>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="mx-auto">
+                    <path d="M6 9l6 6 6-6" stroke="black" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-12 logos">
+                <img src="../find-out/1st.png" alt="Partner 1" class="find-logo" />
+                <img src="../find-out/2nd.png" alt="Partner 2" class="find-logo" />
+                <img src="../find-out/3rd.png" alt="Partner 3" class="find-logo" />
+                <img src="../find-out/fourth.png" alt="Partner 4" class="find-logo" />
             </div>
         </section>
 
-        <section id="testimonials" class="py-20 text-center">
-            <p class="text-[#FF5E62] font-semibold text-sm tracking-wide uppercase mb-2">Superb testimonials</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">See what they say about us</h2>
+    </main>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+    <!-- Full-width testimonials band (gray background) -->
+    <section class="bg-gray-100 py-20 px-6">
+        <div class="max-w-7xl mx-auto">
 
-                <article
-                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe"
-                                class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
-                                <p class="text-sm text-gray-500">Pet: Husky</p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-1 text-amber-400 mb-4" aria-label="5 out of 5 stars rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
-                            results. Will recommend this one!"
-                        </blockquote>
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <p class="nanum text-[#ff6b57] text-3xl font-medium max-w-7xl mx-auto">
+                    Superb testimonials
+                </p>
+
+                <h2 class="poppins text-3xl font-semibold text-black mt-2">
+                    See what they say about us
+                </h2>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                <!-- Card -->
+                <div
+                            class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261] max-w-full">
+
+                    <!-- Avatars -->
+                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[120px] h-[80px]">
+
+                        <!-- Dog (Back) -->
+                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=200" alt=""
+                            class="absolute left-[45px] top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-10">
+
+                        <!-- Human (Front) -->
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt=""
+                            class="absolute left-0 top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-20">
                     </div>
-                </article>
 
-                <article
-                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe"
-                                class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
-                                <p class="text-sm text-gray-500">Pet: Husky</p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-1 text-amber-400 mb-4" aria-label="5 out of 5 stars rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
-                            results. Will recommend this one!"
-                        </blockquote>
-                    </div>
-                </article>
+                    <p class="nanum text-gray-500 text-xl font-medium mb-2">
+                        Jane Doe
+                    </p>
 
-                <article
-                    class="p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition bg-white flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-4 mb-4">
-                            <img src="../testimonials/item.png" alt="Jane Doe"
-                                class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h3 class="font-bold text-gray-900 text-lg">Jane Doe</h3>
-                                <p class="text-sm text-gray-500">Pet: Husky</p>
-                            </div>
-                        </div>
-                        <div class="flex space-x-1 text-amber-400 mb-4" aria-label="5 out of 5 stars rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                        <blockquote class="text-gray-600 italic leading-relaxed">
-                            "I really like Tindog for my pet Huskkier. Tindog really gave me an accurate and safe
-                            results. Will recommend this one!"
-                        </blockquote>
+                            <h3 class="nanum text-4xl font-semibold mb-4 max-w-full">
+                        Pet: Husky
+                    </h3>
+
+                    <!-- Stars -->
+                    <div class="flex justify-center gap-1 mb-10">
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
                     </div>
-                </article>
+
+                    <!-- Quote -->
+                    <div class="relative">
+                        <span class="absolute -left-2 top-0 text-[70px] text-[#9b6df4] leading-none">
+                            “
+                        </span>
+
+                                <p class="poppins text-md leading-relaxed text-gray-800 mx-auto">
+                            I really like Tindog for my pet Huskier.
+                            Tindog really gave me an accurate and
+                            safe results. Will recommend this one!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
+
+                    <!-- Avatars -->
+                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[120px] h-[80px]">
+
+                        <!-- Dog (Back) -->
+                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=200" alt=""
+                            class="absolute left-[45px] top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-10">
+
+                        <!-- Human (Front) -->
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt=""
+                            class="absolute left-0 top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-20">
+                    </div>
+
+                    <p class="nanum text-gray-500 text-xl font-medium mb-2">
+                        Jane Doe
+                    </p>
+
+                    <h3 class="nanum text-4xl font-semibold mb-4">
+                        Pet: Husky
+                    </h3>
+
+                    <div class="flex justify-center gap-1 mb-10">
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-2 top-0 text-[70px] text-[#9b6df4] leading-none">
+                            “
+                        </span>
+
+                        <p class="poppins text-md leading-relaxed text-gray-800 mx-auto">
+                            I really like Tindog for my pet Huskier.
+                            Tindog really gave me an accurate and
+                            safe results. Will recommend this one!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="relative bg-white border border-black rounded-[24px] pt-16 pb-10 px-8 text-center shadow-[0_4px_0_#f4a261]">
+                    <!-- Avatars -->
+                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-[120px] h-[80px]">
+
+                        <!-- Dog (Back) -->
+                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=200" alt=""
+                            class="absolute left-[45px] top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-10">
+
+                        <!-- Human (Front) -->
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt=""
+                            class="absolute left-0 top-0 w-20 h-20 rounded-full border-[3px] border-white object-cover z-20">
+                    </div>
+
+                    <p class="nanum text-gray-500 text-xl font-medium mb-2">
+                        Jane Doe
+                    </p>
+
+                    <h3 class="nanum text-4xl font-semibold mb-4">
+                        Pet: Husky
+                    </h3>
+
+                    <div class="flex justify-center gap-1 mb-10">
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                        <span class="text-[#f7b500] text-4xl">★</span>
+                    </div>
+
+                    <div class="relative">
+                        <span class="absolute -left-2 top-0 text-[70px] text-[#9b6df4] leading-none">
+                            “
+                        </span>
+
+                        <p class="poppins text-md leading-relaxed text-gray-800 mx-auto">
+                            I really like Tindog for my pet Huskier.
+                            Tindog really gave me an accurate and
+                            safe results. Will recommend this one!
+                        </p>
+                    </div>
+                </div>
 
             </div>
 
-            <div class="flex justify-center space-x-2 mt-8" aria-hidden="true">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#FF5E62]"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-300"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-300"></span>
+            <!-- Pagination -->
+            <div class="flex justify-center gap-3 mt-12">
+                <span class="w-5 h-5 rounded-full bg-[#ff6b57]"></span>
+                <span class="w-5 h-5 rounded-full bg-gray-500"></span>
+                <span class="w-5 h-5 rounded-full bg-gray-500"></span>
             </div>
-        </section>
+
+        </div>
+    </section>
+
+
+
+    <main class="max-w-7xl mx-auto px-6">
 
         <section id="download" class="py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
@@ -297,6 +425,133 @@
             <p>Tindog &copy; 2026. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Sticky nav: pin when `.find-out` + `#testimonials` meet thresholds,
+        // and only unpin when the user scrolls past the hero curve sentinel.
+        (function () {
+            const sticky = document.getElementById('sticky-nav');
+            const findOut = document.querySelector('.find-out');
+            const testimonials = document.getElementById('testimonials');
+            const heroCurve = document.getElementById('hero-curve');
+            if (!sticky || !findOut || !testimonials || !heroCurve) return;
+
+            let findVisible = false;
+            let testVisible = false;
+            let stickyPinned = false;
+            let ioCurve = null;
+
+            // observe find-out nearly fully visible
+            const ioFind = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    findVisible = e.intersectionRatio >= 0.99;
+                    tryPin();
+                });
+            }, { threshold: [0, 0.25, 0.5, 0.75, 0.99] });
+
+            // observe testimonials at least half visible
+            const ioTest = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    testVisible = e.intersectionRatio >= 0.5;
+                    tryPin();
+                });
+            }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+            function tryPin() {
+                if (stickyPinned) return; // already pinned, do nothing
+                if (findVisible && testVisible) pinSticky();
+            }
+
+            function pinSticky() {
+                sticky.classList.add('visible');
+                stickyPinned = true;
+
+                // start observing the hero curve sentinel; when it leaves view hide sticky
+                ioCurve = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (!e.isIntersecting) {
+                            // user scrolled past the curve — unpin sticky
+                            sticky.classList.remove('visible');
+                            stickyPinned = false;
+                            if (ioCurve) { ioCurve.disconnect(); ioCurve = null; }
+                        }
+                    });
+                }, { threshold: [0, 0.01] });
+
+                ioCurve.observe(heroCurve);
+            }
+
+            ioFind.observe(findOut);
+            ioTest.observe(testimonials);
+        })();
+
+        // Testimonials slider: autoplay loop with 6 slides
+        (function () {
+            const slider = document.querySelector('.testimonials-slider');
+            if (!slider) return;
+            const slidesWrap = slider.querySelector('.slides');
+            const slides = Array.from(slidesWrap.children);
+            const dotsContainer = slider.querySelector('.slider-dots');
+
+            let perView = getPerView();
+            let page = 0;
+
+            function getPerView() {
+                const w = window.innerWidth;
+                if (w >= 900) return 3;
+                if (w >= 640) return 2;
+                return 1;
+            }
+
+            function build() {
+                perView = getPerView();
+                const slideWidthPercent = 100 / perView;
+                slidesWrap.style.width = (slides.length * slideWidthPercent) + '%';
+                slides.forEach(s => s.style.width = slideWidthPercent + '%');
+                buildDots();
+                goTo(page);
+            }
+
+            function buildDots() {
+                dotsContainer.innerHTML = '';
+                const pages = Math.max(1, Math.ceil(slides.length / perView));
+                for (let i = 0; i < pages; i++) {
+                    const btn = document.createElement('button');
+                    btn.dataset.idx = i;
+                    btn.addEventListener('click', () => { goTo(i); resetAuto(); });
+                    dotsContainer.appendChild(btn);
+                }
+                updateDots();
+            }
+
+            function updateDots() {
+                const btns = dotsContainer.querySelectorAll('button');
+                btns.forEach(b => b.classList.remove('active'));
+                if (btns[page]) btns[page].classList.add('active');
+            }
+
+            function goTo(p) {
+                page = p;
+                const maxPage = Math.max(0, Math.ceil(slides.length / perView) - 1);
+                if (page > maxPage) page = 0;
+                const percent = (page * perView * 100) / slides.length;
+                slidesWrap.style.transform = `translateX(-${percent}%)`;
+                updateDots();
+            }
+
+            function next() {
+                const maxPage = Math.max(0, Math.ceil(slides.length / perView) - 1);
+                page = (page >= maxPage) ? 0 : page + 1;
+                goTo(page);
+            }
+
+            let autoplay = setInterval(next, 3500);
+            function resetAuto() { clearInterval(autoplay); autoplay = setInterval(next, 3500); }
+
+            window.addEventListener('resize', () => { build(); });
+            build();
+        })();
+    </script>
 
 </body>
 
