@@ -24,7 +24,7 @@ n    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-n    <header class="relative w-full overflow-hidden min-h-screen text-white" style="background: linear-gradient(111.52deg, #F29D6A 10.78%, #FF6254 83.54%);">
+n    <header class="relative w-full overflow-hidden min-h-screen text-white">
         <div class="max-w-7xl mx-auto px-6 pt-12 pb-32 md:pb-48 text-white">
             
             <nav class="flex justify-between items-center mb-12 md:mb-24">
