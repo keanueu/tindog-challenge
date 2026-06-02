@@ -82,6 +82,17 @@
     font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Apply Poppins to navigation (moved from inline <style> in index.html) */
+nav,
+nav * {
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Nanum Pen Script for handwritten headings/callouts (moved from inline <style> in index.html) */
+.nanum {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
 
 
 /* Arch image: use `hero-container.png` placed to overlap the hero */
