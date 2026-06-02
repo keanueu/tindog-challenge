@@ -133,16 +133,33 @@
             carousel.scrollBy({ left: amount, behavior: 'smooth' });
         }
 
-        prev.addEventListener('click', () => scrollByAmount(-carousel.clientWidth));
-        next.addEventListener('click', () => scrollByAmount(carousel.clientWidth));
+        prev.addEventListener('click', () => {
+            scrollByAmount(-carousel.clientWidth);
+            // update after a short delay in case of smooth scrolling
+            setTimeout(updateDots, 250);
+        });
+        next.addEventListener('click', () => {
+            scrollByAmount(carousel.clientWidth);
+            setTimeout(updateDots, 250);
+        });
+
+        // pagination dots (if present)
+        const dots = Array.from(document.querySelectorAll('#testimonials-dots span'));
+
+        function updateDots() {
+            if (!dots || dots.length === 0) return;
+            const idx = Math.round((carousel.scrollLeft || 0) / (carousel.clientWidth || 1));
+            dots.forEach((d, i) => d.style.background = (i === idx) ? '#ff6b57' : '#6b7280');
+        }
 
         function updateButtons() {
             const max = carousel.scrollWidth - carousel.clientWidth;
             prev.disabled = carousel.scrollLeft <= 8;
             next.disabled = carousel.scrollLeft >= (max - 8);
+            updateDots();
         }
 
-        carousel.addEventListener('scroll', updateButtons, { passive: true });
+        carousel.addEventListener('scroll', () => { updateButtons(); }, { passive: true });
         window.addEventListener('resize', () => { showButtons(); updateButtons(); });
         // initial
         showButtons();
